@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Random User Generator</title>
+</head>
+<body>
+    <div id="app">
+        <!--the v-bind:src brings the info from the link, alternatively we can just use : -->
+        <img :class="gender" v-bind:src="picture" :alt="firstName">
+        <h1>{{firstName}} {{lastName}}</h1>
+        <h3>{{email}}</h3>
+        <!--v-binding the class will allow the css to display pink for female or blue for male-->
+        <!--the v-on will let the button call the method getUser()-->
+        <button :class="gender" v-on:click="getUser()">Get Random User</button>
+    </div>
+
+
+    <h1>Hello {{firstName}}</h1>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
