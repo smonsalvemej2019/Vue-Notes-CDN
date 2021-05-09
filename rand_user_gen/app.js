@@ -11,8 +11,19 @@ const app = Vue.createApp({
         }
     },
     methods:{
-        getUser(){//we can access the data above with the 'this' keyword
-            console.log(this.firstName);
+        async getUser(){//we can access the data above with the 'this' keyword
+
+        const res = await fetch('https://randomuser.me/api');
+        //the response will be an array with an info object, result object and a prototype object (__proto__)
+        //the { result } will just pick the result object in the array
+        //this is called object deconstruction
+        const  { results }  = await res.json();
+        //console.log(results)
+        this.firstName = results[0].name.first
+        this.lastName= results[0].name.last
+        this.email= results[0].email
+        this.gender= results[0].gender
+        this.picture= results[0].picture.large
         }
     }
 });
